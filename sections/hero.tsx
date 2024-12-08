@@ -7,17 +7,17 @@ import design2 from "@/assets/images/design-example-2.png";
 import cursor1 from "@/assets/images/cursor-you.svg";
 function Hero() {
   return (
-    <section className="py-[8rem] min-h-[48rem] overflow-x-hidden">
-      <div className="container px-4 mx-auto relative">
+    <section className="py-[2rem] pt-[5rem] sm:md:py-[5rem]">
+      <div className="container px-4 mx-auto relative ">
         <Image
           src={design1}
           alt="design image 1"
-          className="absolute hidden lg:block top-32 lg:-left-[8rem] xl:left-[4rem]"
+          className="absolute hidden lg:block top-32 lg:-left-[8rem] xl:left-[0rem]"
         />
         <Image
           src={design2}
           alt="design image 2"
-          className="w-[400px] absolute hidden lg:block -top-16 lg:-right-[20rem] xl:-right-[0rem]"
+          className="w-[400px] absolute hidden lg:block -top-16 lg:-right-[20rem] xl:-right-[8rem]"
         />
 
         <Image
@@ -42,7 +42,7 @@ function Hero() {
             <br /> created effortlessly
           </h1>
 
-          <p className="text-center font-semibold text-base mt-8 text-zinc-400 max-w-xl mx-auto">
+          <p className="text-center description mt-8 max-w-xl mx-auto">
             Design tools shouldn't slow you down. Layers combines powerful
             features with an intuitive interface that keeps you in your creative
             flow
