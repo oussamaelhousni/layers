@@ -2,10 +2,22 @@ import Badge from "@/components/badge";
 import React from "react";
 import Image from "next/image";
 import { IoEllipsisHorizontal } from "react-icons/io5";
+import { MdStars } from "react-icons/md";
 
 import avatar1 from "@/assets/images/avatar-ashwin-santiago.jpg";
 import avatar2 from "@/assets/images/avatar-florence-shaw.jpg";
 import avatar3 from "@/assets/images/avatar-owen-garcia.jpg";
+
+const features = [
+  "Asset Library",
+  "Code Preview",
+  "Flow Mode",
+  "Smart Sync",
+  "Auto Layout",
+  "Fast Search",
+  "Smart Guides",
+];
+
 function Features() {
   return (
     <section className="py-[5rem]">
@@ -85,6 +97,20 @@ function Features() {
               </p>
             </div>
           </div>
+        </div>
+
+        <div className="w-full flex justify-center gap-6 flex-wrap mt-12">
+          {features.map((feature) => {
+            return (
+              <div
+                key={feature}
+                className="border px-3 py-1.5 rounded-2xl flex gap-2 items-center shrink-0 bg-zinc-900 border-zinc-500 text-primary"
+              >
+                <MdStars size={20} />
+                <span className="text-white font-semibold">{feature}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
