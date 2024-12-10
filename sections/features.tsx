@@ -15,9 +15,9 @@ function Features() {
           Where power meets <span className="text-primary">simplicity</span>
         </h2>
 
-        <div className="flex justify-center flex-wrap gap-8 mt-8">
+        <div className="flex justify-center flex-wrap lg:flex-nowrap gap-6 mt-8">
           <div className="border border-zinc-700 px-6 py-8 rounded-2xl  bg-zinc-900/90 flex flex-col gap-6 mt-8">
-            <div className="flex justify-center items-center flex-1">
+            <div className="flex justify-center items-center">
               <Image
                 src={avatar1}
                 alt="avatar 1"
@@ -47,7 +47,7 @@ function Features() {
           </div>
 
           <div className="border border-zinc-700 px-6 py-8 rounded-2xl  bg-zinc-900/90 flex flex-col gap-6 mt-8">
-            <div className="flex justify-center items-center flex-1">
+            <div className="flex justify-center items-center">
               <h3 className="text-3xl font-bold text-center text-zinc-500">
                 We have achieved
                 <span className="block bg-gradient-to-r from-violet-500 to-pink-400 bg-clip-text text-transparent">
