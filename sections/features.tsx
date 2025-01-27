@@ -21,7 +21,7 @@ const features = [
 function Features() {
   return (
     <section className="py-[5rem]">
-      <div className="container mx-auto px-4 max-[1000px] flex flex-col items-center">
+      <div className="container mx-auto px-4 max-w-[1000px] flex flex-col items-center">
         <Badge text="FEATURES" variant="primary" />
         <h2 className="text-4xl font-semibold text-center text-white mt-8">
           Where power meets <span className="text-primary">simplicity</span>
