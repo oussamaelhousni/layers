@@ -1,35 +1,84 @@
+"use client";
 import Badge from "@/components/badge";
 import Button from "@/components/button";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import design1 from "@/assets/images/design-example-1.png";
 import design2 from "@/assets/images/design-example-2.png";
 import cursor1 from "@/assets/images/cursor-you.svg";
+import { motion, useAnimate } from "motion/react";
 function Hero() {
+  const [leftImageScope, leftImageAnimate] = useAnimate();
+  const [leftPointereScope, leftPointerAnimate] = useAnimate();
+  const [rightImageScope, rightImageAnimate] = useAnimate();
+  const [rightPointereScope, rightPointerAnimate] = useAnimate();
+  useEffect(() => {
+    leftImageAnimate([
+      [leftImageScope.current, { opacity: 1 }, { duration: 0.5 }],
+      [leftImageScope.current, { y: 0, x: 0 }, { duration: 0.5 }],
+    ]);
+
+    leftPointerAnimate([
+      [leftPointereScope.current, { opacity: 1 }, { duration: 0.5 }],
+      [leftPointereScope.current, { y: 0, x: 0 }, { duration: 0.5 }],
+      [
+        leftPointereScope.current,
+        { y: [0, 30, 0], x: 300 },
+        { duration: 0.5, ease: "easeInOut" },
+      ],
+    ]);
+
+    rightImageAnimate([
+      [rightImageScope.current, { opacity: 1 }, { duration: 0.5 }],
+      [rightImageScope.current, { y: 0, x: 0 }, { duration: 0.5 }],
+    ]);
+
+    rightPointerAnimate([
+      [rightPointereScope.current, { opacity: 1 }, { duration: 0.5 }],
+      [rightPointereScope.current, { y: 0, x: 0 }, { duration: 0.5 }],
+      [
+        rightPointereScope.current,
+        { y: [0, 30, 0], x: -200 },
+        { duration: 0.5, ease: "easeInOut" },
+      ],
+    ]);
+  }, []);
   return (
     <section className="py-[2rem] pt-[5rem] sm:md:py-[5rem]">
       <div className="container px-4 mx-auto relative ">
-        <Image
-          src={design1}
-          alt="design image 1"
+        <motion.div
           className="absolute hidden lg:block top-32 lg:-left-[8rem] xl:left-[0rem]"
-        />
-        <Image
-          src={design2}
-          alt="design image 2"
+          ref={leftImageScope}
+          initial={{ opacity: 0, y: -100, x: -100 }}
+          drag
+          dragSnapToOrigin
+        >
+          <Image src={design1} alt="design image 1" draggable="false" />
+        </motion.div>
+        <motion.div
           className="w-[400px] absolute hidden lg:block -top-16 lg:-right-[20rem] xl:-right-[8rem]"
-        />
+          ref={rightImageScope}
+          initial={{ x: 150, y: 50, opacity: 0 }}
+          drag
+          dragSnapToOrigin
+        >
+          <Image src={design2} alt="design image 2" draggable="false" />
+        </motion.div>
 
-        <Image
-          src={cursor1}
-          alt="cursor you"
-          className="absolute  hidden lg:block left-[290px] xl:left-[500px] top-[420px]"
-        />
-        <Image
-          src={cursor1}
-          alt="cursor you"
-          className="absolute hidden lg:block right-[290px] xl:right-[450px] top-[0]"
-        />
+        <motion.div
+          className="absolute  hidden lg:block md:left-[100px] xl:left-[200px]  top-[420px]"
+          initial={{ opacity: 0, y: -100, x: -100 }}
+          ref={leftPointereScope}
+        >
+          <Image src={cursor1} alt="cursor you" draggable="false" />
+        </motion.div>
+        <motion.div
+          className="absolute hidden lg:block right-0 xl:right-[150px] top-[0]"
+          ref={rightPointereScope}
+          initial={{ x: 150, y: 50, opacity: 0 }}
+        >
+          <Image src={cursor1} alt="cursor you" />
+        </motion.div>
         <Badge
           text="$7.5M seed round raised"
           variant={"colorful"}
