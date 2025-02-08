@@ -3,6 +3,9 @@ import Hero from "@/sections/hero";
 import Introduction from "@/sections/introduction";
 import Features from "@/sections/features";
 import Intergrations from "@/sections/intergrations";
+import Faqs from "@/sections/faq";
+import TrySection from "@/sections/try-section";
+import Footer from "@/sections/footer";
 
 export default function Home() {
   return (
@@ -12,6 +15,9 @@ export default function Home() {
       <Introduction />
       <Features />
       <Intergrations />
+      <Faqs />
+      <TrySection />
+      <Footer />
     </main>
   );
 }
